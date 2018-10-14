@@ -68,7 +68,7 @@ NR == raportointi {
 /wp:align$/ { $1 = "" }
 /¤¤¤o¤¤¤/   {
     seuraavana_otsikko = "jep"
-    gsub(/Â¤Â¤Â¤oÂ¤Â¤Â¤/, "", $0)
+    gsub(/¤¤¤o¤¤¤/, "", $0)
     kirjoitettava = kirjoitettava suljettavat "</p>"
     suljettavat = ""
     kirjoitettava = hieronta(kirjoitettava, suljettavat)
@@ -199,7 +199,7 @@ NF > 1       {
 /w:i\//       {
     kirjoitettava = kirjoitettava "<i>"
     suljettavat = "</i>" suljettavat}
-/w:u(.)*\// || (!($0 ~ "none"))      {  
+/w:u(.)*\// && (!($0 ~ "none"))      {  
     kirjoitettava = kirjoitettava "<span style=\"text-decoration:underline;\">" 
     suljettavat = "</span>" suljettavat}
 /\/w:r$/       { 
